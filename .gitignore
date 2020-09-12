@@ -1,4 +1,4 @@
 node_modules
 foundryconfig.json
 foundry.js
-packages/
+package/
