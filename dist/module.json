@@ -1,0 +1,17 @@
+{
+  "name": "infinite-character-sheet",
+  "title": "Infinite Character Sheet - Modded GURPS Sheet",
+  "description": "A modded character sheet based on the Generic Universal Roleplaying System (any) Edition system by James Huddleston",
+  "systems": ["gurps4e"],
+  "version": "0.1.0",
+  "author": "Brandelan",
+  "templateVersion": 2,
+  "scripts": [],
+  "esmodules": ["infinite-character-sheet.js"],
+  "styles": ["infinite-character-sheet.css"],
+  "minimumCoreVersion": "0.6.6",
+  "compatibleCoreVersion": "0.6.6",
+  "url": "https://gitlab.com/jbhuddleston/gurps4e",
+  "manifest": "https://gitlab.com/jbhuddleston/gurps4e/-/raw/master/system.json",
+  "download": "https://gitlab.com/jbhuddleston/gurps4e/-/archive/master/gurps4e-master.zip"
+}
