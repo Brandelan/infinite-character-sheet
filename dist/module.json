@@ -13,5 +13,5 @@
   "compatibleCoreVersion": "0.6.6",
   "url": "https://github.com/Brandelan/infinite-character-sheet",
   "manifest": "https://gitlab.com/jbhuddleston/gurps4e/-/raw/master/system.json",
-  "download": "https://gitlab.com/jbhuddleston/gurps4e/-/archive/master/gurps4e-master.zip"
+  "download": "https://github.com/Brandelan/infinite-character-sheet/blob/master/package/infinite-character-sheet-v0.1.0.zip"
 }
