@@ -153,16 +153,17 @@ export class CustomRoller {
     calculatedValues
   ) {
     const speaker = ChatMessage.getSpeaker({ user: game.user });
-    const successMessage = calculatedValues.success
-      ? "Succeeded by "
-      : "Failed by ";
+    const crit = calculatedValues.critical ? "CRITICAL " : "";
+    const successMessage = calculatedValues.success ? "Success" : "Failure";
 
     const messageData = {
       user: game.user._id,
       speaker: speaker,
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
-      total: successMessage + calculatedValues.margin,
+      total: calculatedValues.auto
+        ? crit + successMessage
+        : crit + successMessage + " by " + calculatedValues.margin, //don't show the fail or loss rate when an auto fail/success happens
       flavor:
         "dice: " +
         "<b>" +
@@ -238,22 +239,47 @@ export class CustomRoller {
     const outVals = {
       success: false,
       margin: 0,
+      critical: false,
+      auto: false,
     };
-    if (diceValue < skillCheck) {
+    outVals.margin = Math.abs(skillCheck - diceValue);
+
+    if (diceValue <= skillCheck) {
       outVals.success = true;
-      outVals.margin = skillCheck - diceValue;
-      console.log(
-        "DiceValue is " +
-          diceValue +
-          ", and skillCheck is " +
-          skillCheck +
-          ". Success by " +
-          (skillCheck - diceValue)
-      );
     } else {
       outVals.success = false;
-      outVals.margin = diceValue - skillCheck;
-      console.log("Failure by " + (diceValue - skillCheck));
+    }
+
+    //now determine crits
+    if (diceValue === 18) {
+      outVals.success = false; //always a failure, override previous values
+      outVals.critical = true;
+      outVals.auto = true;
+    }
+    if (diceValue === 17 && skillCheck >= 16) {
+      outVals.success = false;
+      outVals.auto = true;
+    }
+    if (diceValue === 17 && skillCheck < 16) {
+      outVals.success = false;
+      outVals.critical = true;
+      outVals.auto = true;
+    }
+    if (diceValue === 5 && skillCheck >= 15) {
+      outVals.critical = true;
+      outVals.auto = true;
+    }
+    if (diceValue === 6 && skillCheck >= 16) {
+      outVals.critical = true;
+      outVals.auto = true;
+    }
+    if (diceValue === 4) {
+      outVals.critical = true;
+      outVals.auto = true;
+    }
+    if (diceValue === 3) {
+      outVals.critical = true;
+      outVals.auto = true;
     }
 
     return outVals;

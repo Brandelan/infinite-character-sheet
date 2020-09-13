@@ -3,7 +3,7 @@
   "title": "Infinite Character Sheet - Modded GURPS Sheet",
   "description": "A modded character sheet based on the Generic Universal Roleplaying System (any) Edition system by James Huddleston",
   "systems": ["gurps4e"],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Brandelan",
   "templateVersion": 2,
   "scripts": [],
