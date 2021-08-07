@@ -5,7 +5,7 @@
       "base": {
         "infiniteAttrs": {
           "iq": {
-            "label": "IQ",
+            "label": "INT",
             "value": 0
           },
           "will": {
@@ -13,7 +13,7 @@
             "value": 0
           },
           "charisma": {
-            "label": "Char",
+            "label": "Cha",
             "value": 0
           },
           "know": {
@@ -116,7 +116,7 @@
             "value": 10
           },
           "awareness": {
-            "abbr": "Aware",
+            "abbr": "Per",
             "value": 10
           }
         },
